@@ -8,16 +8,16 @@ import { joinHref } from "@/data/club";
 
 export const metadata: Metadata = pageMeta({
   title: "Events",
-  description: "Upcoming events and the event archive of the Rotaract Club of Pune City Legends. Official announcements are published here.",
+  description: "The event archive of the Rotaract Club of Pune City Legends: photo galleries from every event, plus upcoming announcements.",
   path: "/events",
 });
 
 export default function EventsPage() {
   return (
     <>
-      <PageHero lines={["Every event", "leaves a legacy."]} intro="Upcoming events, and the moments that shape the LEGENDS journey." next="upcoming" />
-      <UpcomingEvents />
+      <PageHero lines={["Every Event", "Leaves a Legacy."]} intro="From service drives to ceremonies, the moments that shape the LEGENDS journey, recorded here as they happened." next="archive" />
       <EventArchive />
+      <UpcomingEvents />
       <CTASection title="Be part of what comes next." actions={[{ label: "Join the Movement", href: joinHref }]} />
     </>
   );

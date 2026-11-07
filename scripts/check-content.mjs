@@ -3,7 +3,7 @@
  * Content and asset check (no dependencies). Run: npm run check:content
  *  - every /images/... or /icons/... path referenced in src/ must exist in public/
  *  - event and leadership records must be internally consistent
- *  - events: valid status; completed events must be complete (name, date or year, description, cover, alt text)
+ *  - events: valid status; completed events must be complete (name, description, cover, alt text). A missing date/year is only a warning: dates are never guessed
  *  - partners: unique ids and names (no organisation listed twice), valid category, logo file present, https links
  * Exits with code 1 if there are errors.
  */
@@ -55,7 +55,7 @@ for (const e of events) {
   if (e.coverImage) photoProblems(e.coverImage, where);
   e.gallery?.forEach((g) => photoProblems(g, where));
   if (e.status === "completed") {
-    if (!e.date && !e.year) errors.push(`${where}: a completed event needs a date or an academic year`);
+    if (!e.date && !e.year) warnings.push(`${where}: no verified date or academic year yet (add one when the club confirms it)`);
     if (!(e.description || e.shortDescription)) errors.push(`${where}: a completed event needs a description`);
     if (!e.coverImage) errors.push(`${where}: a completed event needs a cover photograph`);
     if (!e.gallery?.length) warnings.push(`${where}: no gallery photographs yet`);

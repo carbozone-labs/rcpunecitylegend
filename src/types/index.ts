@@ -9,6 +9,10 @@ export type EventPhoto = {
   width: number;
   height: number;
   caption?: string;
+  /** Smaller copy of the same photo (same aspect ratio) used in grids and cards. The full `src` is used in the lightbox and hero. */
+  thumb?: string;
+  /** CSS object-position used when the photo is cropped to fill a frame, e.g. "50% 30%" keeps faces in view. */
+  focus?: string;
 };
 
 export type EventStorySection = { heading?: string; paragraphs: string[] };

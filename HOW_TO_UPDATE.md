@@ -59,3 +59,15 @@ A partner that belongs to more than one category should be listed once, in the c
 npm run check:content   # finds missing images, duplicate partners, incomplete completed events, bad links
 npm run build           # production build
 ```
+
+
+## Event photographs: how the 47-photo import is organised
+
+* `archive/event-photos-original/<event-slug>/` holds every supplied photograph untouched (including `Dandiya.HEIC`). It is NOT part of the website.
+* `archive/event-photos-manifest.csv` / `.json` map each original file to its web copies (source, pixel size, SHA-256 prefix, output paths, which photo is the cover).
+* `public/images/events/<event-slug>/<slug>-NN.webp` is the web copy (long edge up to 2400 px, WebP quality 90, sRGB) used by the hero and the full-screen viewer.
+  `<slug>-NN-thumb.webp` (960 px) is used in cards and gallery grids. Both share the same aspect ratio. HEIC was converted to WebP.
+* In `src/data/events.ts` each photo has `src`, `thumb`, `alt`, `width`, `height` and an optional `focus` (CSS object-position, keeps faces in frame when cropped).
+* To add a photo: put the web copy and thumb in the event's folder, then add it to that event's `gallery`. Run `npm run check:content`.
+* After a build, `npm run audit:event-photos` re-verifies the whole import (originals archived, web copies valid, every photo in its record and in its built page).
+* Dates, venues and academic years are deliberately empty until the club confirms them. Add `date: "YYYY-MM-DD"`, `venue` and `year` to a record when known.

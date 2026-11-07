@@ -20,7 +20,7 @@ export function EventHero({ event }: { event: EventRecord }) {
     <section ref={ref} aria-labelledby="event-title" className="relative isolate flex min-h-[78svh] items-end overflow-hidden pb-14 pt-36 sm:pb-20">
       {event.coverImage ? (
         <motion.div style={{ y: imgY }} className="absolute inset-0 -z-20">
-          <Image src={event.coverImage.src} alt={event.coverImage.alt} fill priority sizes="100vw" className="object-cover" />
+          <Image src={event.coverImage.src} alt={event.coverImage.alt} fill priority sizes="100vw" style={event.coverImage.focus ? { objectPosition: event.coverImage.focus } : undefined} className="object-cover" />
         </motion.div>
       ) : (
         <div aria-hidden className="absolute inset-0 -z-20 bg-[radial-gradient(60%_70%_at_75%_50%,rgb(242_192_104/0.2),transparent_70%),repeating-linear-gradient(135deg,rgb(var(--c-slate)/0.35)_0_1px,transparent_1px_16px)]" />

@@ -90,7 +90,7 @@ export default async function EventPage({ params }: { params: Promise<Params> })
 
       <section id="gallery" aria-labelledby="gallery-title" className="section-y">
         <Container>
-          <SectionHeading id="gallery-title" title="Photo gallery" intro={event.gallery?.length ? undefined : event.status === "completed" ? "Event photographs will appear here once published." : "Photographs will be added after the event."} />
+          <SectionHeading id="gallery-title" title="Photo gallery" intro={event.gallery?.length ? `${event.gallery.length} ${event.gallery.length === 1 ? "photograph" : "photographs"} from ${event.title}. Tap a photo to view it full screen.` : event.status === "completed" ? "Event photographs will appear here once published." : "Photographs will be added after the event."} />
           <div className="mt-12"><EventGallery photos={event.gallery} eventTitle={event.title} /></div>
         </Container>
       </section>

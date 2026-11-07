@@ -19,7 +19,7 @@ export function CoverImage({ image, sizes, priority, aspect, className, imgClass
     <div className={cn("relative overflow-hidden bg-charcoal", aspect, className)}>
       {image ? (
         <>
-          <Image src={image.src} alt={image.alt} fill sizes={sizes} priority={priority} loading={priority ? undefined : "lazy"} className={cn("object-cover", imgClassName)} />
+          <Image src={priority ? image.src : (image.thumb ?? image.src)} alt={image.alt} fill sizes={sizes} priority={priority} loading={priority ? undefined : "lazy"} style={image.focus ? { objectPosition: image.focus } : undefined} className={cn("object-cover", imgClassName)} />
           <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-br from-sky/15 via-transparent to-obsidian/30" />
         </>
       ) : (

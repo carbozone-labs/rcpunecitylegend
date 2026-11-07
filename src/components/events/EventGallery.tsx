@@ -30,7 +30,7 @@ export function EventGallery({ photos, eventTitle }: { photos?: EventPhoto[]; ev
         {photos.map((p, i) => (
           <Reveal as="li" key={p.src} delay={(i % 3) * 0.06} className="break-inside-avoid">
             <button type="button" onClick={() => setOpen(i)} aria-label={`Open photo ${i + 1} of ${photos.length}: ${p.alt}`} className="group relative block w-full overflow-hidden border hairline">
-              <Image src={p.src} alt={p.alt} width={p.width} height={p.height} sizes="(min-width:768px) 33vw, 50vw" loading={i < 2 ? "eager" : "lazy"} className="h-auto w-full transition-transform duration-slow ease-cinematic group-hover:scale-105" />
+              <Image src={p.thumb ?? p.src} alt={p.alt} width={p.width} height={p.height} sizes="(min-width:768px) 33vw, 50vw" loading={i < 2 ? "eager" : "lazy"} className="h-auto w-full transition-transform duration-slow ease-cinematic group-hover:scale-105" />
               <span aria-hidden className="absolute inset-0 bg-obsidian/0 transition-colors duration-base group-hover:bg-obsidian/25" />
             </button>
           </Reveal>
