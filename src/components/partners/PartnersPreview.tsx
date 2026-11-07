@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "@/components/ui/SiteImage";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";

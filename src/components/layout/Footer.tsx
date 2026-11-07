@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/SiteImage";
 import Link from "next/link";
 import { club, nav } from "@/data/club";
 import { EnquiryFormLink } from "@/components/forms/EnquiryFormLink";

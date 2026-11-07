@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/SiteImage";
 import { Sparkles } from "lucide-react";
 import type { EventPhoto } from "@/types";
 import { cn } from "@/lib/utils";

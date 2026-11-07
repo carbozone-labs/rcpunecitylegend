@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/ui/SiteImage";
 import { useState } from "react";
 import { Camera } from "lucide-react";
 import type { EventPhoto } from "@/types";

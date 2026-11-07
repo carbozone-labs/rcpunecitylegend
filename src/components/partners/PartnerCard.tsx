@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/SiteImage";
 import { ArrowUpRight } from "lucide-react";
 import type { Partner } from "@/data/partners";
 
